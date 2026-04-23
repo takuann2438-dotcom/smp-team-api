@@ -1,54 +1,57 @@
-[
-  {
-    "name": "takanah_oisii",
-    "money": "10954818",
-    "shards": "975",
-    "kills": "9",
-    "deaths": "15",
-    "playtime": "234943668",
-    "placed_blocks": "5597",
-    "broken_blocks": "63410",
-    "mobs_killed": "1003",
-    "money_spent_on_shop": "2214512",
-    "money_made_from_sell": "2.977490999999999e+5"
-  },
-  {
-    "name": ".nynsyuu",
-    "money": "8765368",
-    "shards": "706",
-    "kills": "1",
-    "deaths": "25",
-    "playtime": "161926308",
-    "placed_blocks": "4845",
-    "broken_blocks": "72033",
-    "mobs_killed": "658",
-    "money_spent_on_shop": "382304",
-    "money_made_from_sell": "84640.85"
-  },
-  {
-    "name": "HatterSheep",
-    "money": "177723",
-    "shards": "210",
-    "kills": "0",
-    "deaths": "1",
-    "playtime": "195173627",
-    "placed_blocks": "267",
-    "broken_blocks": "1724",
-    "mobs_killed": "15",
-    "money_spent_on_shop": "2385",
-    "money_made_from_sell": "55447.75"
-  },
-  {
-    "name": "Neko_Gunsou",
-    "money": "1726143",
-    "shards": "2770",
-    "kills": "0",
-    "deaths": "1",
-    "playtime": "164981187",
-    "placed_blocks": "1308",
-    "broken_blocks": "6118",
-    "mobs_killed": "28",
-    "money_spent_on_shop": "16550",
-    "money_made_from_sell": "63707.4"
-  }
-]
+{
+  "lastUpdated": "2026-04-23T10:35:17.581Z",
+  "players": [
+    {
+      "name": "takanah_oisii",
+      "money": "10954818",
+      "shards": "1001",
+      "kills": "9",
+      "deaths": "15",
+      "playtime": "236993877",
+      "placed_blocks": "5597",
+      "broken_blocks": "63410",
+      "mobs_killed": "1003",
+      "money_spent_on_shop": "2214512",
+      "money_made_from_sell": "2.977490999999999e+5"
+    },
+    {
+      "name": ".nynsyuu",
+      "money": "12136762",
+      "shards": "706",
+      "kills": "1",
+      "deaths": "25",
+      "playtime": "163470855",
+      "placed_blocks": "4852",
+      "broken_blocks": "75287",
+      "mobs_killed": "658",
+      "money_spent_on_shop": "383104",
+      "money_made_from_sell": "84640.85"
+    },
+    {
+      "name": "HatterSheep",
+      "money": "177723",
+      "shards": "233",
+      "kills": "0",
+      "deaths": "1",
+      "playtime": "195370567",
+      "placed_blocks": "268",
+      "broken_blocks": "1727",
+      "mobs_killed": "15",
+      "money_spent_on_shop": "2385",
+      "money_made_from_sell": "55447.75"
+    },
+    {
+      "name": "Neko_Gunsou",
+      "money": "1725318",
+      "shards": "2770",
+      "kills": "0",
+      "deaths": "1",
+      "playtime": "165771382",
+      "placed_blocks": "1312",
+      "broken_blocks": "6173",
+      "mobs_killed": "28",
+      "money_spent_on_shop": "17375",
+      "money_made_from_sell": "63707.4"
+    }
+  ]
+}
