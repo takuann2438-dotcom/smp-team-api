@@ -54,7 +54,7 @@ window.loadStats = async function() {
             return Number(valB) - Number(valA);
         });
 
-        players.forEach(player => {
+players.forEach(player => {
             const m = parseInt(player.money) || 0;
             const s = parseInt(player.shards) || 0;
             const k = parseInt(player.kills) || 0;
@@ -66,6 +66,7 @@ window.loadStats = async function() {
             totalDeaths += d;
 
             const row = document.createElement('tr');
+            // 合計5つの <td> が必要です
             row.innerHTML = `
                 <td>${player.name || 'Unknown'}</td>
                 <td>${formatNumber(m)}</td>
@@ -76,9 +77,9 @@ window.loadStats = async function() {
             tbody.appendChild(row);
         });
 
-        // 合計行の追加
         const totalRow = document.createElement('tr');
         totalRow.className = 'total-row';
+        // 合計行も必ず <td> を5つ並べます
         totalRow.innerHTML = `
             <td>TEAM TOTAL</td>
             <td>${formatNumber(totalMoney)}</td>
