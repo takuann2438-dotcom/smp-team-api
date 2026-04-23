@@ -36,14 +36,19 @@ async function updateAllStats() {
             allStats.push(stats);
             console.log(`✅ ${name} のデータを取得しました`);
         }
-        // 連続リクエストによる負荷を避けるため、少し待機（0.5秒）
         await new Promise(resolve => setTimeout(resolve, 500));
     }
 
-    // 全員のデータを1つのJSONファイルに保存
-    fs.writeFileSync('team_stats.json', JSON.stringify(allStats, null, 2));
+    // --- ここから修正 ---
+    const outputData = {
+        lastUpdated: new Date().toISOString(), // 取得完了時の時刻
+        players: allStats // 今までの配列をplayersの中に入れる
+    };
+
+    fs.writeFileSync('team_stats.json', JSON.stringify(outputData, null, 2));
+    // --- ここまで修正 ---
+
     console.log('--- 全員のデータを保存しました ---');
 }
 
-// 実行
 updateAllStats();

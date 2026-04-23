@@ -10,12 +10,12 @@
         th, td { border: 1px solid #444; padding: 12px; text-align: left; }
         th { background: #333; color: #ffcc00; }
         tr:nth-child(even) { background: #222; }
-        .update-time { color: #888; font-size: 0.9em; }
+        .update-time { color: #888; font-size: 0.9em; margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <h1>Team Stats Leaderboard</h1>
-    <p id="time" class="update-time"></p>
+    <p id="time" class="update-time">データを読み込み中...</p>
     
     <table id="statsTable">
         <thead>
@@ -33,37 +33,47 @@
     <script>
         async function loadStats() {
             try {
-                // Actionsが生成したJSONを読み込む
+                // Actionsが生成した新構造のJSONを読み込む
                 const response = await fetch('team_stats.json');
-                const data = await response.json();
+                const rootData = await response.json();
                 
+                // 1. 最終取得時刻の表示
+                if (rootData.lastUpdated) {
+                    const lastUpdated = new Date(rootData.lastUpdated).toLocaleString();
+                    document.getElementById('time').innerText = `データ最終取得時刻: ${lastUpdated}`;
+                }
+
+                // 2. プレイヤー一覧の取得
+                const data = rootData.players || [];
                 const tbody = document.querySelector('#statsTable tbody');
                 tbody.innerHTML = '';
 
-                // データを所持金(bal)の多い順に並び替える
-                data.sort((a, b) => b.bal - a.bal);
+                // 3. money(所持金)の多い順に並び替える
+                data.sort((a, b) => (b.money || 0) - (a.money || 0));
 
-            data.forEach(player => {
-            // データが欠けていてもエラーにならないように安全策をとる
-                const bal = (player.money || 0).toLocaleString();
-                const kills = player.kills || 0;
-                const deaths = player.deaths || 0;
-                const name = player.name || 'Unknown';
+                // 4. 表の作成
+                data.forEach(player => {
+                    const name = player.name || 'Unknown';
+                    const money = (player.money || 0).toLocaleString();
+                    const kills = player.kills || 0;
+                    const deaths = player.deaths || 0;
 
-                const row = `<tr>
-                <td>${name}</td>
-                <td>${bal}</td>
-                <td>${kills}</td>
-                <td>${deaths}</td>
-                </tr>`;
-                tbody.innerHTML += row;
-            });
+                    const row = `<tr>
+                        <td>${name}</td>
+                        <td>${money}</td>
+                        <td>${kills}</td>
+                        <td>${deaths}</td>
+                    </tr>`;
+                    tbody.innerHTML += row;
+                });
 
-                document.getElementById('time').innerText = '最終更新: ' + new Date().toLocaleString();
             } catch (e) {
                 console.error("データの読み込みに失敗しました", e);
+                document.getElementById('time').innerText = 'データの読み込みに失敗しました。';
             }
         }
+        
+        // ページ読み込み時に実行
         loadStats();
     </script>
 </body>
