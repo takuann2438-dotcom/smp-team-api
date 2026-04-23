@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-04-23T11:02:02.630Z",
+  "lastUpdated": "2026-04-23T11:41:03.044Z",
   "players": [
     {
       "name": "takanah_oisii",
-      "money": "10954818",
+      "money": "10954960",
       "shards": "1020",
       "kills": "9",
       "deaths": "15",
-      "playtime": "239207347",
-      "placed_blocks": "5601",
-      "broken_blocks": "63551",
+      "playtime": "242102697",
+      "placed_blocks": "5605",
+      "broken_blocks": "64023",
       "mobs_killed": "1003",
       "money_spent_on_shop": "2214512",
-      "money_made_from_sell": "2.977490999999999e+5"
+      "money_made_from_sell": "2.978918999999999e+5"
     },
     {
       "name": ".nynsyuu",
@@ -43,7 +43,7 @@
     {
       "name": "Neko_Gunsou",
       "money": "2445829",
-      "shards": "2775",
+      "shards": "2814",
       "kills": "0",
       "deaths": "1",
       "playtime": "167454729",
