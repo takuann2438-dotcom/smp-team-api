@@ -43,15 +43,21 @@
                 // データを所持金(bal)の多い順に並び替える
                 data.sort((a, b) => b.bal - a.bal);
 
-                data.forEach(player => {
-                    const row = `<tr>
-                        <td>${player.name}</td>
-                        <td>${player.bal.toLocaleString()}</td>
-                        <td>${player.kills}</td>
-                        <td>${player.deaths}</td>
-                    </tr>`;
-                    tbody.innerHTML += row;
-                });
+            data.forEach(player => {
+            // データが欠けていてもエラーにならないように安全策をとる
+                const bal = (player.bal || 0).toLocaleString();
+                const kills = player.kills || 0;
+                const deaths = player.deaths || 0;
+                const name = player.name || 'Unknown';
+
+                const row = `<tr>
+                <td>${name}</td>
+                <td>${bal}</td>
+                <td>${kills}</td>
+                <td>${deaths}</td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
 
                 document.getElementById('time').innerText = '最終更新: ' + new Date().toLocaleString();
             } catch (e) {
