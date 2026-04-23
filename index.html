@@ -18,10 +18,11 @@
     <table id="statsTable">
         <thead>
             <tr>
-                <th>プレイヤー名</th>
-                <th>所持金 ($)</th>
-                <th>キル数</th>
-                <th>デス数</th>
+                <th onclick="sortTable('name')" style="cursor: pointer;">プレイヤー名 ↕</th>
+                <th onclick="sortTable('money')" style="cursor: pointer;">所持金 ($) ↕</th>
+                <th onclick="sortTable('shards')" style="cursor: pointer;">Shards ↕</th>
+                <th onclick="sortTable('kills')" style="cursor: pointer;">キル数 ↕</th>
+                <th onclick="sortTable('deaths')" style="cursor: pointer;">デス数 ↕</th>
             </tr>
         </thead>
         <tbody></tbody>
