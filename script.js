@@ -24,28 +24,22 @@ window.toggleFormat = function() {
     window.loadStats();
 };
 
-window.loadStats = async function() {
+indow.loadStats = async function() {
     try {
         const response = await fetch(`team_stats.json?t=${new Date().getTime()}`);
         const rootData = await response.json();
-        
         const tbody = document.querySelector('#statsTable tbody');
         if (!tbody) return;
         tbody.innerHTML = '';
 
         const players = rootData.players || [];
-        
-        let totalMoney = 0;
-        let totalShards = 0;
-        let totalKills = 0;
-        let totalDeaths = 0;
+        let totalMoney = 0, totalShards = 0, totalKills = 0, totalDeaths = 0;
 
-        // 各プレイヤーのオブジェクトに事前にKD値を計算して持たせる
+        // K/Dを計算してデータに持たせる
         players.forEach(p => {
-            const kills = parseInt(p.kills) || 0;
-            const deaths = parseInt(p.deaths) || 0;
-            // デスが0の場合はキル数をそのままKDとする（または1として計算するのが一般的）
-            p.kd = deaths === 0 ? kills : parseFloat((kills / deaths).toFixed(2));
+            const k = parseInt(p.kills) || 0;
+            const d = parseInt(p.deaths) || 0;
+            p.kd = d === 0 ? k : parseFloat((k / d).toFixed(2));
         });
 
         // ソート処理
@@ -61,7 +55,6 @@ window.loadStats = async function() {
             const s = parseInt(player.shards) || 0;
             const k = parseInt(player.kills) || 0;
             const d = parseInt(player.deaths) || 0;
-            const kd = player.kd; // 事前に計算した値を使用
 
             totalMoney += m;
             totalShards += s;
@@ -69,28 +62,31 @@ window.loadStats = async function() {
             totalDeaths += d;
 
             const row = document.createElement('tr');
+            // 【重要】<td> を6つ並べる！
             row.innerHTML = `
                 <td>${player.name || 'Unknown'}</td>
                 <td>${formatNumber(m)}</td>
                 <td>${formatNumber(s)}</td>
                 <td>${k.toLocaleString()}</td>
                 <td>${d.toLocaleString()}</td>
-                <td style="font-weight: bold; color: #00ffcc;">${kd.toFixed(2)}</td> `;
+                <td style="color: #00ffcc; font-weight: bold;">${player.kd.toFixed(2)}</td>
+            `;
             tbody.appendChild(row);
         });
 
-        // チーム全体のK/D
+        // チーム合計の計算
         const totalKD = totalDeaths === 0 ? totalKills : (totalKills / totalDeaths).toFixed(2);
-
         const totalRow = document.createElement('tr');
         totalRow.className = 'total-row';
+        // 【重要】ここも <td> を6つ並べる！
         totalRow.innerHTML = `
             <td>TEAM TOTAL</td>
             <td>${formatNumber(totalMoney)}</td>
             <td>${formatNumber(totalShards)}</td>
             <td>${totalKills.toLocaleString()}</td>
             <td>${totalDeaths.toLocaleString()}</td>
-            <td>${totalKD}</td> `;
+            <td>${totalKD}</td>
+        `;
         tbody.appendChild(totalRow);
 
     } catch (e) {
