@@ -24,7 +24,7 @@ window.toggleFormat = function() {
     window.loadStats();
 };
 
-indow.loadStats = async function() {
+window.loadStats = async function() {
     try {
         const response = await fetch(`team_stats.json?t=${new Date().getTime()}`);
         const rootData = await response.json();
