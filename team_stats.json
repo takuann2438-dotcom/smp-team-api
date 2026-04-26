@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-26T22:31:30.746Z",
+  "lastUpdated": "2026-04-26T23:22:23.244Z",
   "players": [
     {
       "name": "takanah_oisii",
@@ -30,7 +30,7 @@
     {
       "name": "HatterSheep",
       "money": "206223",
-      "shards": "679",
+      "shards": "731",
       "kills": "0",
       "deaths": "1",
       "playtime": "221619579",
@@ -43,10 +43,10 @@
     {
       "name": "Neko_Gunsou",
       "money": "2434430",
-      "shards": "5023",
+      "shards": "5044",
       "kills": "0",
       "deaths": "2",
-      "playtime": "292881680",
+      "playtime": "293030012",
       "placed_blocks": "1677",
       "broken_blocks": "11135",
       "mobs_killed": "29",
