@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-05-17T01:26:48.660Z",
+  "lastUpdated": "2026-05-17T05:30:31.339Z",
   "players": [
     {
       "name": "takanah_oisii",
       "money": "17366636",
-      "shards": "1428",
+      "shards": "1429",
       "kills": "9",
       "deaths": "15",
-      "playtime": "287759489",
-      "placed_blocks": "6696",
+      "playtime": "288009413",
+      "placed_blocks": "6697",
       "broken_blocks": "83968",
-      "mobs_killed": "1071",
+      "mobs_killed": "1072",
       "money_spent_on_shop": "2610172",
       "money_made_from_sell": "3.072603999999999e+5"
     },
